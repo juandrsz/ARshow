@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AR Machine Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/jeromeetienne/AR.js/3.3.0/aframe/build/aframe-ar.js"></script>
+    <style>
+      #ar-view {
+        height: 100vh;
+      }
+      #menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        padding: 10px;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+      #menu ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        justify-content: center;
+      }
+      #menu li {
+        margin: 0 10px;
+        cursor: pointer;
+      }
+      #menu li.active {
+        border-bottom: 2px solid #000;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="ar-view">
+      <a-scene embedded arjs>
+        <a-marker preset="hiro">
+          <a-entity id="model-container"></a-entity>
+        </a-marker>
+        <a-entity camera></a-entity>
+      </a-scene>
+    </div>
+    <div id="menu">
+      <ul>
+        <li class="active" data-model="machine1.obj">Machine 1</li>
+        <li data-model="machine2.obj">Machine 2</li>
+        <li data-model="machine3.obj">Machine 3</li>
+      </ul>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
